@@ -19,13 +19,22 @@
       padding-top: 4rem; /* space for top bar */
     }
 
+    /* Rainbow text animation */
+    @keyframes rainbow-text {
+      0% { color: red; }
+      16% { color: orange; }
+      32% { color: yellow; }
+      48% { color: green; }
+      64% { color: blue; }
+      80% { color: indigo; }
+      100% { color: violet; }
+    }
+
     /* Top bar */
     header {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4rem;
+      top: 0; left: 0;
+      width: 100%; height: 4rem;
       background: rgba(0, 0, 0, 0.3);
       display: flex;
       align-items: center;
@@ -34,20 +43,16 @@
       z-index: 100;
     }
     .small-logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      background: #ffdd00;
-      color: #fff;
+      font-size: 1.5rem; font-weight: 800;
+      background: #ffdd00; color: #fff;
       padding: 0.25rem 0.75rem;
       border-radius: 999px;
-      text-shadow: 2px 2px 2px rgba(0,0,0,0.2), 4px 4px 8px rgba(0,0,0,0.1);
-      transition: background 0.3s ease;
+      text-shadow: 2px 2px 2px rgba(0,0,0,0.2),4px 4px 8px rgba(0,0,0,0.1);
       cursor: pointer;
+      transition: background 0.3s ease;
     }
     .small-logo:hover {
-      animation: rainbow 3s ease infinite;
-      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
-      background-size: 1400% 1400%;
+      animation: rainbow-text 3s ease infinite;
     }
 
     /* Main area */
@@ -56,43 +61,38 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
       padding: 2rem;
     }
-    .mascot {
-      width: 200px;
-      height: auto;
-      margin-bottom: 1rem;
-    }
+    .mascot { width: 200px; height: auto; margin-bottom: 1rem; }
+
     .logo {
-      font-size: 6rem;
-      font-weight: 900;
-      color: #ffdd00;
-      line-height: 1;
-      text-shadow: 2px 2px 2px rgba(0,0,0,0.2), 5px 5px 15px rgba(0,0,0,0.1);
+      font-size: 6rem; font-weight: 900;
+      text-shadow: 2px 2px 2px rgba(0,0,0,0.2),5px 5px 15px rgba(0,0,0,0.1);
       margin-bottom: 1.5rem;
       transform: translateY(-10px);
       user-select: none;
+      color: #ffdd00;
     }
-    .logo .dollar, .logo .word {
+    .logo .dollar {
       display: inline-block;
       cursor: pointer;
       transition: color 0.3s ease;
     }
-    .logo .dollar:hover { color: #00c853; }
+    .logo .dollar:hover {
+      color: #00c853;
+    }
+    .logo .word {
+      display: inline-block;
+      cursor: pointer;
+    }
     .logo .word:hover {
-      animation: rainbow 3s ease infinite;
-      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 1400% 1400%;
+      animation: rainbow-text 3s ease infinite;
     }
 
     .headline {
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: 2rem; font-weight: 700;
       margin-bottom: 2rem;
       font-family: 'Fredoka One', cursive;
       color: #444;
@@ -100,116 +100,98 @@
 
     /* Section card */
     .tokenomics {
-      background: rgba(0, 0, 0, 0.05); /* light transparent grey */
+      background: rgba(0, 0, 0, 0.05);
       border-radius: 12px;
       padding: 1.5rem 2rem;
       margin-top: 2rem;
-      width: 100%;
-      max-width: 400px;
+      width: 100%; max-width: 400px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       text-align: left;
     }
-    .tokenomics h2 {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-      color: #000;
-    }
+    .tokenomics h2 { font-size: 1.75rem; margin-bottom: 1rem; color: #000; }
     .tokenomics p {
       margin-bottom: 0.75rem;
-      font-size: 1rem;
-      line-height: 1.4;
+      font-size: 1rem; line-height: 1.4;
       color: #000;
     }
-    .tokenomics p strong { color: #000; }
     .tokenomics em {
-      display: block;
-      margin-top: 0.5rem;
-      font-style: italic;
-      color: #333;
-      font-size: 0.9rem;
+      display: block; margin-top: 0.5rem;
+      font-style: italic; color: #333; font-size: 0.9rem;
     }
 
-    /* Slot spin game styles */
+    /* Spin game styles */
     .slot-machine { display: flex; align-items: center; margin: 24px 0; }
     .reel {
       background: #fafafa;
       border: 4px solid #ffdd00;
       border-radius: 8px;
-      width: 80px;
-      height: 80px;
+      width: 80px; height: 80px;
       margin: 0 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-size: 2rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .lever-container { display: flex; flex-direction: column; align-items: center; }
     .lever {
-      background: #ffdd00;
-      border: none;
-      border-radius: 999px;
-      width: 60px;
-      height: 120px;
-      cursor: pointer;
-      margin-top: 12px;
+      background: #ffdd00; border: none; border-radius: 999px;
+      width: 60px; height: 120px;
+      cursor: pointer; margin-top: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.15s;
-      font-weight: bold;
-      font-size: 1rem;
-      color: #181818;
+      font-weight: bold; font-size: 1rem; color: #181818;
       position: relative;
     }
     .lever:active { transform: translateY(4px); }
     .lever-knob {
-      width: 24px;
-      height: 24px;
-      background: #ffe600;
-      border-radius: 50%;
-      border: 2px solid #ffd000;
-      position: absolute;
-      top: -28px;
-      left: 50%;
-      transform: translateX(-50%);
+      width: 24px; height: 24px;
+      background: #ffe600; border-radius: 50%; border: 2px solid #ffd000;
+      position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
     .result { margin-top: 16px; font-size: 1rem; min-height: 24px; }
 
-    /* Top-right buttons */
+    /* Buttons */
     .top-actions { display: flex; gap: 1rem; }
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem;
-      font-size: 0.9rem; font-weight: 600; border: none; border-radius: 999px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08); cursor: pointer;
-      background: #ffdd00; color: #fff; text-decoration: none;
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem; font-weight: 600; border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      cursor: pointer; background: #ffdd00; color: #fff;
+      text-decoration: none;
     }
     .btn.twitter { background: #1da1f2; }
     .btn.telegram { background: #0088cc; }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+    /* Remove outline around connect wallet */
+    #connect-wallet {
+      outline: none;
+      box-shadow: none !important;
+      color: #000;
+    }
+    #connect-wallet:hover {
+      box-shadow: none !important;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
 
     /* Coin rain */
-    .coin { position: fixed; width: 20px; height: 20px;
-      background: #ffdd00; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    .coin {
+      position: fixed; width: 20px; height: 20px;
+      background: #ffdd00; border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       pointer-events: none; animation: fall 2s linear forwards;
     }
-    @keyframes fall { 0% { transform: translateY(-10vh) scale(1); opacity:1; } 100% { transform: translateY(100vh) scale(0.5); opacity:0; } }
+    @keyframes fall { 0% { transform: translateY(-10vh) scale(1); opacity: 1; } 100% { transform: translateY(100vh) scale(0.5); opacity: 0; } }
   </style>
 </head>
 <body>
   <header>
     <div class="small-logo">FOMOJI</div>
     <div class="top-actions">
-      <a href="https://x.com/FOMOJICoin" target="_blank" class="btn twitter">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012.07 8v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
-        </svg>
-        Twitter
-      </a>
-      <a href="https://t.me/fomojicoin" target="_blank" class="btn telegram">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 240 240">
-          <path d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0zm57 83l-21 99c-1 4-3 5-6 3l-18-17-9 9c-1 2-3 2-5 1l-3-3-17-11-6 6c-1 1-3 1-4 0l-1-1 1-1 45-43 49-32c2-1 2-3 0-4l-64 37-42-13c-4-1-5-3-2-5l103-40c4-2 7 1 6 5z"/>
-        </svg>
-        Telegram
-      </a>
+      <a href="https://x.com/FOMOJICoin" target="_blank" class="btn twitter">Twitter</a>
+      <a href="https://t.me/fomojicoin" target="_blank" class="btn telegram">Telegram</a>
       <button id="connect-wallet" class="btn connect-wallet">Connect Wallet</button>
     </div>
   </header>
@@ -220,7 +202,7 @@
     <section class="tokenomics">
       <h2>Tokenomics</h2>
       <p><strong>TOTAL SUPPLY:</strong> 777,000,000</p>
-      <p><strong>UTILITY:</strong> $FOMOJI’s utility? Making you sweat every new green candle.</p>
+      <p><strong>UTILITY:</strong> Making you sweat every new green candle.</p>
       <p><em>(Warning: May cause involuntary chart-checking.)</em></p>
     </section>
     <section class="tokenomics">
@@ -233,14 +215,17 @@
         <div class="reel" id="reel1">🎰</div>
         <div class="reel" id="reel2">🎰</div>
         <div class="reel" id="reel3">🎰</div>
-        <div class="lever-container"><div class="lever-knob"></div><button class="lever" id="leverBtn">SPIN</button></div>
+        <div class="lever-container">
+          <div class="lever-knob"></div>
+          <button class="lever" id="leverBtn">SPIN</button>
+        </div>
       </div>
       <div class="result" id="result"></div>
       <p>If you match 3, send a screenshot to <strong>@FOMOJICoin</strong> for a chance at an airdrop!</p>
     </section>
   </main>
   <script>
-    /* Coin rain on dollar hover */
+    // Coin rain on dollar hover
     document.querySelector('.dollar').addEventListener('mouseenter', () => {
       for (let i = 0; i < 30; i++) {
         setTimeout(() => {
@@ -248,17 +233,16 @@
         }, i * 50);
       }
     });
-    /* Connect Wallet Function */
+    // Connect Wallet
     document.getElementById('connect-wallet').addEventListener('click', async () => {
-      if (window.ethereum) { try { await window.ethereum.request({ method: 'eth_requestAccounts' }); document.getElementById('connect-wallet').textContent = 'Connected'; } catch(e){console.error(e);} } else { alert('MetaMask not detected. Please install MetaMask to connect your wallet.'); }
-    });
-    /* Slot spin logic */
+      if (window.ethereum) { try { await window.ethereum.request({ method: 'eth_requestAccounts' }); document.getElementById('connect-wallet').textContent = 'Connected'; } catch (e) { console.error(e); } } else { alert('Install MetaMask'); } });
+    // Spin logic
     const images = ["😱","😂","😎","🤡","🤑","🤩","😇","😜","🤔","😭","😏","👑","🎉","🔥","🚀","💸","🍀","🥳","💎","😤"];
     let spinning = false;
     const leverBtn = document.getElementById('leverBtn');
-    function randomIdx(){return Math.floor(Math.random()*images.length);}    
-    function spinReel(id, cb){let cnt=0, max=24+Math.floor(Math.random()*10), iv=setInterval(()=>{document.getElementById(id).textContent=images[randomIdx()]; if(++cnt>=max){clearInterval(iv);cb();}},60+Math.random()*40);}    
-    leverBtn.addEventListener('click',()=>{if(spinning)return;spinning=true;leverBtn.disabled=true;document.getElementById('result').textContent='Spinning...';let res=[];spinReel('reel1',()=>{res[0]=document.getElementById('reel1').textContent;spinReel('reel2',()=>{res[1]=document.getElementById('reel2').textContent;spinReel('reel3',()=>{res[2]=document.getElementById('reel3').textContent;spinning=false;leverBtn.disabled=false;let out; if(res[0]===res[1]&&res[1]===res[2])out='JACKPOT! 😱🎉';else if(res[0]===res[1]||res[1]===res[2]||res[0]===res[2])out='Nice! Two match!';else out='Better luck next time!';document.getElementById('result').textContent=out;});});});});
+    function randomIdx() { return Math.floor(Math.random() * images.length); }
+    function spinReel(id, cb) { let cnt = 0, max = 24 + Math.floor(Math.random() * 10), iv = setInterval(() => { document.getElementById(id).textContent = images[randomIdx()]; if (++cnt >= max) { clearInterval(iv); cb(); } }, 60 + Math.random() * 40); }
+    leverBtn.addEventListener('click', () => { if (spinning) return; spinning = true; leverBtn.disabled = true; document.getElementById('result').textContent = 'Spinning...'; let res = []; spinReel('reel1', () => { res[0] = document.getElementById('reel1').textContent; spinReel('reel2', () => { res[1] = document.getElementById('reel2').textContent; spinReel('reel3', () => { res[2] = document.getElementById('reel3').textContent; spinning = false; leverBtn.disabled = false; let out; if (res[0] === res[1] && res[1] === res[2]) out = 'JACKPOT! 😱🎉'; else if (res[0] === res[1] || res[1] === res[2] || res[0] === res[2]) out = 'Nice! Two match!'; else out = 'Better luck next time!'; document.getElementById('result').textContent = out; }); }); }); });
   </script>
 </body>
 </html>
