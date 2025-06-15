@@ -16,7 +16,7 @@
       background: #ffffff;
       font-family: 'Poppins', sans-serif;
       color: #333;
-      padding-top: 4rem; /* space for top bar */
+      padding-top: 4rem;
     }
 
     /* Rainbow text animation */
@@ -32,8 +32,7 @@
 
     /* Top bar */
     header {
-      position: fixed;
-      top: 0; left: 0;
+      position: fixed; top: 0; left: 0;
       width: 100%; height: 4rem;
       background: rgba(0, 0, 0, 0.3);
       display: flex;
@@ -47,13 +46,10 @@
       background: #ffdd00; color: #fff;
       padding: 0.25rem 0.75rem;
       border-radius: 999px;
-      text-shadow: 2px 2px 2px rgba(0,0,0,0.2),4px 4px 8px rgba(0,0,0,0.1);
       cursor: pointer;
       transition: background 0.3s ease;
     }
-    .small-logo:hover {
-      animation: rainbow-text 3s ease infinite;
-    }
+    .small-logo:hover { animation: rainbow-text 3s ease infinite; }
 
     /* Main area */
     .main {
@@ -61,35 +57,21 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      text-align: center;
       padding: 2rem;
     }
-    .mascot { width: 200px; height: auto; margin-bottom: 1rem; }
+    .mascot { width: 200px; margin-bottom: 1rem; }
 
     .logo {
       font-size: 6rem; font-weight: 900;
-      text-shadow: 2px 2px 2px rgba(0,0,0,0.2),5px 5px 15px rgba(0,0,0,0.1);
-      margin-bottom: 1.5rem;
-      transform: translateY(-10px);
-      user-select: none;
       color: #ffdd00;
+      text-shadow: 2px 2px 2px rgba(0,0,0,0.2), 5px 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+      user-select: none;
     }
-    .logo .dollar {
-      display: inline-block;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-    .logo .dollar:hover {
-      color: #00c853;
-    }
-    .logo .word {
-      display: inline-block;
-      cursor: pointer;
-    }
-    .logo .word:hover {
-      animation: rainbow-text 3s ease infinite;
-    }
+    .logo .dollar { cursor: pointer; transition: color 0.3s ease; }
+    .logo .dollar:hover { color: #00c853; }
+    .logo .word { cursor: pointer; }
+    .logo .word:hover { animation: rainbow-text 3s ease infinite; }
 
     .headline {
       font-size: 2rem; font-weight: 700;
@@ -98,55 +80,46 @@
       color: #444;
     }
 
-    /* Section card */
+    /* Card sections */
     .tokenomics {
-      background: rgba(0, 0, 0, 0.05);
+      background: rgba(0,0,0,0.05);
       border-radius: 12px;
       padding: 1.5rem 2rem;
       margin-top: 2rem;
-      width: 100%; max-width: 400px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      max-width: 400px;
+      width: 100%;
       text-align: left;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    .tokenomics h2 { font-size: 1.75rem; margin-bottom: 1rem; color: #000; }
-    .tokenomics p {
-      margin-bottom: 0.75rem;
-      font-size: 1rem; line-height: 1.4;
-      color: #000;
-    }
-    .tokenomics em {
-      display: block; margin-top: 0.5rem;
-      font-style: italic; color: #333; font-size: 0.9rem;
-    }
+    .tokenomics h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+    .tokenomics p { font-size: 1rem; line-height: 1.4; margin-bottom: 0.75rem; }
+    .tokenomics em { font-style: italic; font-size: 0.9rem; color: #333; }
 
-    /* Spin game styles */
+    /* Spin game */
     .slot-machine { display: flex; align-items: center; margin: 24px 0; }
     .reel {
-      background: #fafafa;
-      border: 4px solid #ffdd00;
-      border-radius: 8px;
-      width: 80px; height: 80px;
-      margin: 0 12px;
+      background: #fafafa; border: 4px solid #ffdd00;
+      border-radius: 8px; width: 80px; height: 80px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 2rem;
+      font-size: 2rem; margin: 0 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .lever-container { display: flex; flex-direction: column; align-items: center; }
     .lever {
-      background: #ffdd00; border: none; border-radius: 999px;
-      width: 60px; height: 120px;
-      cursor: pointer; margin-top: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.15s;
-      font-weight: bold; font-size: 1rem; color: #181818;
       position: relative;
+      background: #ffdd00; border: none; border-radius: 999px;
+      width: 60px; height: 120px; margin-top: 12px;
+      font-size: 1rem; font-weight: bold; color: #181818;
+      cursor: pointer;
+      transition: transform 0.15s;
     }
     .lever:active { transform: translateY(4px); }
     .lever-knob {
+      position: absolute; top: -28px; left: 50%;
+      transform: translateX(-50%);
       width: 24px; height: 24px;
-      background: #ffe600; border-radius: 50%; border: 2px solid #ffd000;
-      position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      background: #ffe600; border: 2px solid #ffd000;
+      border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
     .result { margin-top: 16px; font-size: 1rem; min-height: 24px; }
 
@@ -154,44 +127,42 @@
     .top-actions { display: flex; gap: 1rem; }
     .btn {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem; font-weight: 600; border-radius: 999px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      cursor: pointer; background: #ffdd00; color: #fff;
-      text-decoration: none;
+      padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600;
+      border-radius: 999px; cursor: pointer;
+      background: #ffdd00; color: #fff; text-decoration: none;
     }
+    .btn svg { width: 20px; height: 20px; fill: currentColor; }
     .btn.twitter { background: #1da1f2; }
     .btn.telegram { background: #0088cc; }
-    /* Remove outline around connect wallet */
     #connect-wallet {
-      outline: none;
+      background: #ffdd00; color: #444;
       box-shadow: none !important;
-      color: #000;
+      outline: none !important;
+      border: none;
     }
-    #connect-wallet:hover {
-      box-shadow: none !important;
-    }
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    }
+    .btn:hover { transform: translateY(-2px); }
 
     /* Coin rain */
     .coin {
       position: fixed; width: 20px; height: 20px;
       background: #ffdd00; border-radius: 50%;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       pointer-events: none; animation: fall 2s linear forwards;
     }
-    @keyframes fall { 0% { transform: translateY(-10vh) scale(1); opacity: 1; } 100% { transform: translateY(100vh) scale(0.5); opacity: 0; } }
+    @keyframes fall { 0% { transform: translateY(-10vh) scale(1); opacity:1;} 100% { transform: translateY(100vh) scale(0.5); opacity:0;} }
   </style>
 </head>
 <body>
   <header>
     <div class="small-logo">FOMOJI</div>
     <div class="top-actions">
-      <a href="https://x.com/FOMOJICoin" target="_blank" class="btn twitter">Twitter</a>
-      <a href="https://t.me/fomojicoin" target="_blank" class="btn telegram">Telegram</a>
+      <a href="https://x.com/FOMOJICoin" class="btn twitter" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012.07 8v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        Twitter
+      </a>
+      <a href="https://t.me/fomojicoin" class="btn telegram" target="_blank">
+        <svg viewBox="0 0 240 240"><path d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0zm57 83l-21 99c-1 4-3 5-6 3l-18-17-9 9c-1 2-3 2-5 1l-3-3-17-11-6 6c-1 1-3 1-4 0l-1-1 1-1 45-43 49-32c2-1 2-3 0-4l-64 37-42-13c-4-1-5-3-2-5l103-40c4-2 7 1 6 5z"/></svg>
+        Telegram
+      </a>
       <button id="connect-wallet" class="btn connect-wallet">Connect Wallet</button>
     </div>
   </header>
@@ -214,7 +185,8 @@
       <div class="slot-machine">
         <div class="reel" id="reel1">🎰</div>
         <div class="reel" id="reel2">🎰</div>
-        <div class="reel" id="reel3">🎰</div>
+        <div class="reel" id="reel3">🎰
+        </div>
         <div class="lever-container">
           <div class="lever-knob"></div>
           <button class="lever" id="leverBtn">SPIN</button>
@@ -225,24 +197,30 @@
     </section>
   </main>
   <script>
-    // Coin rain on dollar hover
+    // Coin rain
     document.querySelector('.dollar').addEventListener('mouseenter', () => {
-      for (let i = 0; i < 30; i++) {
-        setTimeout(() => {
-          const coin = document.createElement('div'); coin.className = 'coin'; coin.style.left = Math.random() * 100 + 'vw'; document.body.appendChild(coin); setTimeout(() => coin.remove(), 2000);
-        }, i * 50);
+      for (let i = 0; i < 30; i++) setTimeout(() => {
+        const coin = document.createElement('div'); coin.className = 'coin'; coin.style.left = Math.random()*100+'vw'; document.body.appendChild(coin); setTimeout(()=>coin.remove(),2000);
+      }, i*50);
+    });
+    // Connect Wallet function
+    document.getElementById('connect-wallet').addEventListener('click', async () => {
+      if (window.ethereum) {
+        try {
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+          document.getElementById('connect-wallet').textContent = 'Connected';
+        } catch (e) { console.error(e); }
+      } else {
+        alert('MetaMask not detected. Please install MetaMask.');
       }
     });
-    // Connect Wallet
-    document.getElementById('connect-wallet').addEventListener('click', async () => {
-      if (window.ethereum) { try { await window.ethereum.request({ method: 'eth_requestAccounts' }); document.getElementById('connect-wallet').textContent = 'Connected'; } catch (e) { console.error(e); } } else { alert('Install MetaMask'); } });
-    // Spin logic
-    const images = ["😱","😂","😎","🤡","🤑","🤩","😇","😜","🤔","😭","😏","👑","🎉","🔥","🚀","💸","🍀","🥳","💎","😤"];
-    let spinning = false;
-    const leverBtn = document.getElementById('leverBtn');
-    function randomIdx() { return Math.floor(Math.random() * images.length); }
-    function spinReel(id, cb) { let cnt = 0, max = 24 + Math.floor(Math.random() * 10), iv = setInterval(() => { document.getElementById(id).textContent = images[randomIdx()]; if (++cnt >= max) { clearInterval(iv); cb(); } }, 60 + Math.random() * 40); }
-    leverBtn.addEventListener('click', () => { if (spinning) return; spinning = true; leverBtn.disabled = true; document.getElementById('result').textContent = 'Spinning...'; let res = []; spinReel('reel1', () => { res[0] = document.getElementById('reel1').textContent; spinReel('reel2', () => { res[1] = document.getElementById('reel2').textContent; spinReel('reel3', () => { res[2] = document.getElementById('reel3').textContent; spinning = false; leverBtn.disabled = false; let out; if (res[0] === res[1] && res[1] === res[2]) out = 'JACKPOT! 😱🎉'; else if (res[0] === res[1] || res[1] === res[2] || res[0] === res[2]) out = 'Nice! Two match!'; else out = 'Better luck next time!'; document.getElementById('result').textContent = out; }); }); }); });
+    // Slot spin logic
+    const images=["😱","😂","😎","🤡","🤑","🤩","😇","😜","🤔","😭","😏","👑","🎉","🔥","🚀","💸","🍀","🥳","💎","😤"];
+    let spinning=false;
+    const leverBtn=document.getElementById('leverBtn');
+    function randomIdx(){return Math.floor(Math.random()*images.length);}    
+    function spinReel(id,cb){let cnt=0,max=24+Math.floor(Math.random()*10),iv=setInterval(()=>{document.getElementById(id).textContent=images[randomIdx()];if(++cnt>=max){clearInterval(iv);cb();}},60+Math.random()*40);}    
+    leverBtn.addEventListener('click',()=>{if(spinning)return;spinning=true;leverBtn.disabled=true;document.getElementById('result').textContent='Spinning...';let res=[];spinReel('reel1',()=>{res[0]=document.getElementById('reel1').textContent;spinReel('reel2',()=>{res[1]=document.getElementById('reel2').textContent;spinReel('reel3',()=>{res[2]=document.getElementById('reel3').textContent;spinning=false;leverBtn.disabled=false;let out;if(res[0]===res[1]&&res[1]===res[2])out='JACKPOT! 😱🎉';else if(res[0]===res[1]||res[1]===res[2]||res[0]===res[2])out='Nice! Two match!';else out='Better luck next time!';document.getElementById('result').textContent=out;});});});});
   </script>
 </body>
 </html>
