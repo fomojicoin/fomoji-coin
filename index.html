@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FOMOJI – Releasing 6.16.25</title>
   <style>
@@ -12,80 +12,68 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
       background: #ffffff;
       font-family: 'Poppins', sans-serif;
       color: #333;
       padding-top: 4rem;
     }
-
-    /* Rainbow text animation */
-    @keyframes rainbow-text {
-      0% { color: red; }
-      16% { color: orange; }
-      32% { color: yellow; }
-      48% { color: green; }
-      64% { color: blue; }
-      80% { color: indigo; }
-      100% { color: violet; }
-    }
-
-    /* Top bar */
+    /* Header */
     header {
       position: fixed; top: 0; left: 0;
       width: 100%; height: 4rem;
       background: rgba(0, 0, 0, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
-      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; z-index: 100;
     }
     .small-logo {
       font-size: 1.5rem; font-weight: 800;
       background: #ffdd00; color: #fff;
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      padding: 0.25rem 0.75rem; border-radius: 999px; cursor: pointer;
     }
-    .small-logo:hover { animation: rainbow-text 3s ease infinite; }
-
+    .top-actions { display: flex; gap: 1rem; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600;
+      border-radius: 999px; text-decoration: none; color: #fff;
+    }
+    .btn.twitter { background: #1da1f2; }
+    .btn.telegram { background: #0088cc; }
+    #connect-wallet {
+      background: #ffdd00; color: #444;
+      border: none; outline: none; cursor: pointer;
+    }
+    /* Rainbow text animation */
+    @keyframes rainbow-text {
+      0% { color: red; } 16% { color: orange; } 32% { color: yellow; }
+      48% { color: green; } 64% { color: blue; } 80% { color: indigo; }
+      100% { color: violet; }
+    }
     /* Main area */
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-    }
+    .main { margin-top: 4rem; padding: 2rem; text-align: center; }
     .mascot { width: 200px; margin-bottom: 1rem; }
-
+    /* Logo */
     .logo {
-      font-size: 6rem; font-weight: 900;
-      color: #ffdd00;
-      text-shadow: 2px 2px 2px rgba(0,0,0,0.2), 5px 5px 15px rgba(0,0,0,0.1);
-      margin-bottom: 1.5rem;
-      user-select: none;
+      font-size: 6rem; font-weight: 900; color: #ffdd00;
+      text-shadow: 2px 2px 2px rgba(0,0,0,0.2),5px 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 1rem; user-select: none;
     }
     .logo .dollar { cursor: pointer; transition: color 0.3s ease; }
     .logo .dollar:hover { color: #00c853; }
     .logo .word { cursor: pointer; }
     .logo .word:hover { animation: rainbow-text 3s ease infinite; }
-
-    .headline {
-      font-size: 2rem; font-weight: 700;
-      margin-bottom: 2rem;
-      font-family: 'Fredoka One', cursive;
-      color: #444;
+    /* Countdown styling */
+    #countdown {
+      font-family: 'Roboto', sans-serif; font-weight: 700;
+      font-size: 2rem; padding: 0.5rem 1rem;
+      background: linear-gradient(135deg, #ffdd00 0%, #00c853 100%);
+      color: #111; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin-bottom: 2rem; display: inline-block;
     }
-
-    /* Card sections */
+    /* Tokenomics cards */
     .tokenomics {
       background: rgba(0,0,0,0.05);
       border-radius: 12px;
       padding: 1.5rem 2rem;
-      margin-top: 2rem;
+      margin: 2rem auto;  /* center horizontally with top/bottom margin */
       max-width: 400px;
       width: 100%;
       text-align: left;
@@ -94,7 +82,6 @@
     .tokenomics h2 { font-size: 1.75rem; margin-bottom: 1rem; }
     .tokenomics p { font-size: 1rem; line-height: 1.4; margin-bottom: 0.75rem; }
     .tokenomics em { font-style: italic; font-size: 0.9rem; color: #333; }
-
     /* Spin game */
     .slot-machine { display: flex; align-items: center; margin: 24px 0; }
     .reel {
@@ -102,53 +89,32 @@
       border-radius: 8px; width: 80px; height: 80px;
       display: flex; align-items: center; justify-content: center;
       font-size: 2rem; margin: 0 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .lever-container { display: flex; flex-direction: column; align-items: center; }
     .lever {
-      position: relative;
       background: #ffdd00; border: none; border-radius: 999px;
       width: 60px; height: 120px; margin-top: 12px;
-      font-size: 1rem; font-weight: bold; color: #181818;
-      cursor: pointer;
-      transition: transform 0.15s;
+      font-weight: bold; font-size: 1rem; color: #181818;
+      cursor: pointer; transition: transform 0.15s; position: relative;
     }
     .lever:active { transform: translateY(4px); }
     .lever-knob {
-      position: absolute; top: -28px; left: 50%;
-      transform: translateX(-50%);
-      width: 24px; height: 24px;
-      background: #ffe600; border: 2px solid #ffd000;
-      border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
+      width: 24px; height: 24px; background: #ffe600;
+      border: 2px solid #ffd000; border-radius: 50%;
     }
     .result { margin-top: 16px; font-size: 1rem; min-height: 24px; }
-
-    /* Buttons */
-    .top-actions { display: flex; gap: 1rem; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600;
-      border-radius: 999px; cursor: pointer;
-      background: #ffdd00; color: #fff; text-decoration: none;
-    }
-    .btn svg { width: 20px; height: 20px; fill: currentColor; }
-    .btn.twitter { background: #1da1f2; }
-    .btn.telegram { background: #0088cc; }
-    #connect-wallet {
-      background: #ffdd00; color: #444;
-      box-shadow: none !important;
-      outline: none !important;
-      border: none;
-    }
-    .btn:hover { transform: translateY(-2px); }
-
     /* Coin rain */
-    .coin {
-      position: fixed; width: 20px; height: 20px;
+    .coin { position: fixed; width: 20px; height: 20px;
       background: #ffdd00; border-radius: 50%;
       pointer-events: none; animation: fall 2s linear forwards;
     }
-    @keyframes fall { 0% { transform: translateY(-10vh) scale(1); opacity:1;} 100% { transform: translateY(100vh) scale(0.5); opacity:0;} }
+    @keyframes fall { 0% { transform: translateY(-10vh) scale(1); } 100% { transform: translateY(100vh) scale(0.5); } }
+      /* Hover effects for top right buttons */
+    .btn.twitter:hover, .btn.telegram:hover, #connect-wallet:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
   </style>
 </head>
 <body>
@@ -156,11 +122,15 @@
     <div class="small-logo">FOMOJI</div>
     <div class="top-actions">
       <a href="https://x.com/FOMOJICoin" class="btn twitter" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012.07 8v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012.07 8v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+        </svg>
         Twitter
       </a>
       <a href="https://t.me/fomojicoin" class="btn telegram" target="_blank">
-        <svg viewBox="0 0 240 240"><path d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0zm57 83l-21 99c-1 4-3 5-6 3l-18-17-9 9c-1 2-3 2-5 1l-3-3-17-11-6 6c-1 1-3 1-4 0l-1-1 1-1 45-43 49-32c2-1 2-3 0-4l-64 37-42-13c-4-1-5-3-2-5l103-40c4-2 7 1 6 5z"/></svg>
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 240 240">
+          <path d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0zm57 83l-21 99c-1 4-3 5-6 3l-18-17-9 9c-1 2-3 2-5 1l-3-3-17-11-6 6c-1 1-3 1-4 0l-1-1 1-1 45-43 49-32c2-1 2-3 0-4l-64 37-42-13c-4-1-5-3-2-5l103-40c4-2 7 1 6 5z"/>
+        </svg>
         Telegram
       </a>
       <button id="connect-wallet" class="btn connect-wallet">Connect Wallet</button>
@@ -169,7 +139,7 @@
   <main class="main">
     <img src="FOMOJI.png" alt="FOMOJI Mascot" class="mascot" />
     <div class="logo"><span class="dollar">$</span><span class="word">FOMOJI</span></div>
-    <div class="headline">Releasing on pump.fun 6.16.25</div>
+    <span id="countdown">Loading countdown...</span>
     <section class="tokenomics">
       <h2>Tokenomics</h2>
       <p><strong>TOTAL SUPPLY:</strong> 777,000,000</p>
@@ -185,42 +155,53 @@
       <div class="slot-machine">
         <div class="reel" id="reel1">🎰</div>
         <div class="reel" id="reel2">🎰</div>
-        <div class="reel" id="reel3">🎰
-        </div>
-        <div class="lever-container">
-          <div class="lever-knob"></div>
-          <button class="lever" id="leverBtn">SPIN</button>
-        </div>
+        <div class="reel" id="reel3">🎰</div>
+        <div class="lever-container"><div class="lever-knob"></div><button class="lever" id="leverBtn">SPIN</button></div>
       </div>
       <div class="result" id="result"></div>
       <p>If you match 3, send a screenshot to <strong>@FOMOJICoin</strong> for a chance at an airdrop!</p>
     </section>
   </main>
   <script>
-    // Coin rain
+    // Countdown to June 16, 2025 1pm
+    (function() {
+      const target = new Date('2025-06-16T13:00:00');
+      function update() {
+        const now = new Date();
+        const diff = target - now;
+        if (diff <= 0) {
+          document.getElementById('countdown').textContent = 'Now!';
+          return;
+        }
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+        const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+        const seconds = Math.floor((diff % (1000*60)) / 1000);
+        document.getElementById('countdown').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+      update(); setInterval(update, 1000);
+    })();
+
+    // Coin rain on $ hover
     document.querySelector('.dollar').addEventListener('mouseenter', () => {
       for (let i = 0; i < 30; i++) setTimeout(() => {
-        const coin = document.createElement('div'); coin.className = 'coin'; coin.style.left = Math.random()*100+'vw'; document.body.appendChild(coin); setTimeout(()=>coin.remove(),2000);
+        const c = document.createElement('div'); c.className = 'coin'; c.style.left = Math.random()*100+'vw'; document.body.appendChild(c); setTimeout(() => c.remove(),2000);
       }, i*50);
     });
-    // Connect Wallet function
-    document.getElementById('connect-wallet').addEventListener('click', async () => {
+
+    // Connect Wallet
+    document.getElementById('connect-wallet').addEventListener('click', async function() {
       if (window.ethereum) {
-        try {
-          await window.ethereum.request({ method: 'eth_requestAccounts' });
-          document.getElementById('connect-wallet').textContent = 'Connected';
-        } catch (e) { console.error(e); }
-      } else {
-        alert('MetaMask not detected. Please install MetaMask.');
-      }
+        try { await window.ethereum.request({ method: 'eth_requestAccounts' }); this.textContent = 'Connected'; } catch (e) { console.error(e); }
+      } else alert('MetaMask not detected');
     });
+
     // Slot spin logic
-    const images=["😱","😂","😎","🤡","🤑","🤩","😇","😜","🤔","😭","😏","👑","🎉","🔥","🚀","💸","🍀","🥳","💎","😤"];
-    let spinning=false;
-    const leverBtn=document.getElementById('leverBtn');
-    function randomIdx(){return Math.floor(Math.random()*images.length);}    
-    function spinReel(id,cb){let cnt=0,max=24+Math.floor(Math.random()*10),iv=setInterval(()=>{document.getElementById(id).textContent=images[randomIdx()];if(++cnt>=max){clearInterval(iv);cb();}},60+Math.random()*40);}    
-    leverBtn.addEventListener('click',()=>{if(spinning)return;spinning=true;leverBtn.disabled=true;document.getElementById('result').textContent='Spinning...';let res=[];spinReel('reel1',()=>{res[0]=document.getElementById('reel1').textContent;spinReel('reel2',()=>{res[1]=document.getElementById('reel2').textContent;spinReel('reel3',()=>{res[2]=document.getElementById('reel3').textContent;spinning=false;leverBtn.disabled=false;let out;if(res[0]===res[1]&&res[1]===res[2])out='JACKPOT! 😱🎉';else if(res[0]===res[1]||res[1]===res[2]||res[0]===res[2])out='Nice! Two match!';else out='Better luck next time!';document.getElementById('result').textContent=out;});});});});
+    const imgs=["😱","😂","😎","🤡","🤑","🤩","😇","😜","🤔","😭","😏","👑","🎉","🔥","🚀","💸","🍀","🥳","💎","😤"];
+    let spinning=false; const btn=document.getElementById('leverBtn');
+    function rnd(){ return imgs[Math.floor(Math.random()*imgs.length)]; }
+    function spinReel(id,cb){ let cnt=0,max=24+Math.floor(Math.random()*10),iv=setInterval(() => { document.getElementById(id).textContent=rnd(); if(++cnt>=max){clearInterval(iv);cb();}},60+Math.random()*40); }
+    btn.addEventListener('click',() => { if(spinning) return; spinning=true; btn.disabled=true; document.getElementById('result').textContent='Spinning...'; let r=[]; spinReel('reel1',() => { r[0]=document.getElementById('reel1').textContent; spinReel('reel2',() => { r[1]=document.getElementById('reel2').textContent; spinReel('reel3',() => { r[2]=document.getElementById('reel3').textContent; spinning=false; btn.disabled=false; let o; if(r[0]===r[1]&&r[1]===r[2]) o='JACKPOT! 😱🎉'; else if(r[0]===r[1]||r[1]===r[2]||r[0]===r[2]) o='Nice! Two match!'; else o='Better luck next time!'; document.getElementById('result').textContent=o; }); }); }); });
   </script>
 </body>
 </html>
